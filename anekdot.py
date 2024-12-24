@@ -14,7 +14,6 @@ def get_new_anekdot():
     req = requests.get("https://www.anekdot.ru/random/anekdot/", headers)
 
     src = req.text
-    #print(src)
 
     soup = BeautifulSoup(src, 'lxml')
 
