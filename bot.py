@@ -10,7 +10,8 @@ help_message = """
 
 @bot.message_handler(commands=['help'])
 def send_help(message):
-    bot.send_message(message.chat.id, text=help_message )
+    #bot.send_message(message.chat.id, text=help_message )
+    pass
 
 def send_random_anekdot(message):
     anekdot = get_new_anekdot()
@@ -22,7 +23,8 @@ bot.message_handler(commands=['anekdot'])(send_random_anekdot)
 def unknown_command(message):
  known_commands = ['/anekdot', '/help']
  if message.text.split()[0] not in known_commands:
-     bot.reply_to(message, "Некорректный ввод. Введите /help для просмотра доступных функций")
-     
+     #bot.reply_to(message, "Некорректный ввод. Введите /help для просмотра доступных функций")
+     pass
+ 
 bot.polling()
 
