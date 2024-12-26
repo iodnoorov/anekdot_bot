@@ -11,12 +11,19 @@ headers = {
 
 
 def get_new_anekdot():
-    req = requests.get("https://www.anekdot.ru/random/anekdot/", headers)
+   req = requests.get("https://www.anekdot.ru/random/anekdot/", headers)
 
-    src = req.text
+   src = req.text
 
-    soup = BeautifulSoup(src, 'lxml')
+   soup = BeautifulSoup(src, 'lxml')
 
-    anekdot = soup.find('div', class_='text').text
+   anekdot = soup.find('div', class_='text').contents
 
-    return anekdot
+   result = ''
+
+   for item in anekdot:
+      if str(item) == '<br/>':
+         result = result + '\n'
+      else: 
+         result = result + str(item)
+   return result
